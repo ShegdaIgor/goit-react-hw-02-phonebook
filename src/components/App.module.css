@@ -1,0 +1,12 @@
+.contacts {
+  margin: 10px auto;
+  padding: 20px;
+  max-width: 600px;
+  max-height: auto;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.title {
+  font-size: 20px;
+}
