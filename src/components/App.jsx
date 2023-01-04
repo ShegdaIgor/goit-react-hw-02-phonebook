@@ -5,8 +5,6 @@ import ContactsList from './ContactsList/ContactsList';
 import FilterContact from './FilterContact/FilterContact';
 import { nanoid } from 'nanoid';
 
-const MY_CONTACTS = 'my-contacts';
-
 export default class App extends Component {
   state = {
     contacts: [
@@ -17,17 +15,6 @@ export default class App extends Component {
     ],
     filter: '',
   };
-
-  componentDidMount() {
-    const myContactsFromList = JSON.parse(localStorage.getItem(MY_CONTACTS));
-    if (myContactsFromList) {
-      this.setState({ contacts: myContactsFromList });
-    }
-  }
-
-  componentDidUpdate() {
-    this.saveContactsToList();
-  }
 
   handleSubmitForm = (name, number) => {
     const { contacts } = this.state;
@@ -47,10 +34,6 @@ export default class App extends Component {
     }));
     this.saveContactsToList();
     return true;
-  };
-
-  saveContactsToList = () => {
-    localStorage.setItem(MY_CONTACTS, JSON.stringify(this.state.contacts));
   };
 
   handleFilterContact = e => {
