@@ -15,15 +15,22 @@ export default class ContactsForm extends Component {
 
   getContactFormData = e => {
     e.preventDefault();
-    const { name, number } = this.state;
 
-    if (this.props.handleSubmitForm(name, number)) {
-      this.setState({
-        name: '',
-        number: '',
-      });
-      return;
-    }
+    // const { name, number } = this.state;
+
+    // if (this.props.handleSubmitForm(name, number)) {
+    //   this.setState({
+    //     name: '',
+    //     number: '',
+    //   });
+    // }
+    this.props.handleSubmitForm(this.state);
+
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
   };
 
   render() {

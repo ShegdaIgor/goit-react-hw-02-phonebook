@@ -16,7 +16,7 @@ export default class App extends Component {
     filter: '',
   };
 
-  handleSubmitForm = (name, number) => {
+  handleSubmitForm = ({ name, number }) => {
     const { contacts } = this.state;
     const id = nanoid();
 
@@ -28,12 +28,10 @@ export default class App extends Component {
       return alert(`${name} is already in the list`);
     }
 
-    const contactObj = { id: id, name, number };
+    const contactObj = { id, name, number };
     this.setState(prevState => ({
       contacts: [...prevState.contacts, contactObj],
     }));
-    this.saveContactsToList();
-    return true;
   };
 
   handleFilterContact = e => {
